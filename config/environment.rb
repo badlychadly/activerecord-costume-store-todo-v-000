@@ -10,10 +10,7 @@ require 'pry'
 
 DBNAME = "halloween"
 
-Dir[File.join(File.dirname(__FILE__), "../app/models", "*.rb")].each do |f| 
-  binding.pry
-  require f
-end
+Dir[File.join(File.dirname(__FILE__), "../app/models", "*.rb")].each {|f| require f}
 Dir[File.join(File.dirname(__FILE__), "../lib/support", "*.rb")].each {|f| require f}
 
 DBRegistry[ENV["ACTIVE_RECORD_ENV"]].connect!
